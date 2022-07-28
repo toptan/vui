@@ -4,6 +4,7 @@
 #include "VApplication.h"
 
 #include "pimpl_impl.h"
+#include "logging.h"
 
 #include <chrono>
 #include <iostream>
@@ -47,12 +48,12 @@ int VApplication::impl::exec() {
         //        Wait(1L);
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
-    std::cout << "Exiting application.\n";
+    LOG("Exiting application\n");
     return m_exitCode;
 }
 
 void VApplication::impl::exit(int status) {
-    std::cout << "Quiting event loop with status: " << status << std::endl;
+    LOG("Quiting event loop with status: " << status << std::endl);
     m_exitCode = status;
     m_eventLoopDone = true;
 }

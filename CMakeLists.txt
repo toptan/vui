@@ -11,6 +11,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# Check our build type and set debug macro
+add_compile_options("$<$<CONFIG:DEBUG>:-DDEBUG>")
+
 # Add our binary
 add_executable(vui main.cpp
         lib/src/VApplication.cpp

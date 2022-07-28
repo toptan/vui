@@ -5,8 +5,6 @@
 #include <chrono>
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-
     std::thread t([]() {
         std::this_thread::sleep_for(std::chrono::seconds(2));
         VApplication::instance().exit(-1);
